@@ -1,13 +1,17 @@
-def AGENT_LABEL = null
 
 pipeline {
-    agent none
+    agent{
+        docker {
+            label 'docker'
+        }
+    }
     stages {
    
         
         stage('Deploy') { 
             agent {
                 docker {
+                    reuseNode true
                     image 'python:3.6-alpine' 
                     args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=xx.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
                 }
