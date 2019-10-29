@@ -1,7 +1,7 @@
 pipeline {
-    agent any 
+    agent none 
     environment {
-    rnd = "${env.EXECUTOR_NUMBER}"
+    rnd = "rex"
     
     }
     stages {
