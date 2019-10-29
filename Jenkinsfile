@@ -1,8 +1,11 @@
 pipeline {
-    agent none 
-    environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
+    agent any
+    
+    node {
+        environment {
+            DISABLE_AUTH = 'true'
+            DB_ENGINE    = 'sqlite'
+        }
     }
     stages {
 
