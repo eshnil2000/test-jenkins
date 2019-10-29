@@ -1,12 +1,16 @@
 pipeline {
-    agent none 
+    agent any 
+    environment {
+    rnd = ${env.EXECUTOR_NUMBER}
+    
+    }
     stages {
 
         stage('Deploy') { 
             agent {
                 docker {
                     image 'python:3.6-alpine' 
-                    args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=${env.EXECUTOR_NUMBER}.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
+                    args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=${rnd}.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
                 }
             }
             steps {
