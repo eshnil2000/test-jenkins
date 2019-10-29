@@ -1,18 +1,24 @@
 
 pipeline {
     agent any
+    environment {
+    //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
+    IMAGE = "imageXXX"
+  }
+
     stages {
    
         
         stage('Deploy') { 
             agent {
                 docker {
-                    reuseNode true
+                    
                     image 'python:3.6-alpine' 
                     args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=xx.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
                 }
             }
             steps {
+                sh 'echo "${IMAGE}"'
                 sh 'pip install -r requirements.txt'
                 sh 'chmod +x ./scripts/deliver.sh'
                 sh './scripts/deliver.sh'
