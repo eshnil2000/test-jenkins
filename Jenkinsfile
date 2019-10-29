@@ -1,15 +1,14 @@
 pipeline {
     agent none 
     environment {
-    rnd = "rnd"
-    
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
     }
     stages {
 
         stage('envars') {
             steps {
                 echo "Database engine is ${DB_ENGINE}"
-                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
                 sh 'printenv'
             }
         }
