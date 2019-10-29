@@ -1,7 +1,7 @@
 pipeline {
     agent none 
     environment {
-    rnd = "rex"
+    DIRDOUBLE = getVar(G_dirdouble)
     
     }
     stages {
@@ -10,7 +10,7 @@ pipeline {
             agent {
                 docker {
                     image 'python:3.6-alpine' 
-                    args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=${rnd}.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
+                    args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=${DIRDOUBLE}.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
                 }
             }
             steps {
