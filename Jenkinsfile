@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-    rnd = ${env.EXECUTOR_NUMBER}
+    rnd = "${env.EXECUTOR_NUMBER}"
     
     }
     stages {
