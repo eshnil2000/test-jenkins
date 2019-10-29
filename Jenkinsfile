@@ -1,10 +1,13 @@
 pipeline {
     agent any
+    environment { 
+        CC = 'clang'
+    }
     stages {
         
         stage('envars') {
             steps {
-                echo "Database engine is ${DB_ENGINE}"
+                echo "Database engine is ${CC}"
                 sh 'printenv'
             }
         }
