@@ -6,6 +6,7 @@ pipeline {
             agent {
                 docker {
                     image 'python:3.6-alpine' 
+                    echo "Running ${env.EXECUTOR_NUMBER} on ${env.JENKINS_URL}"
                     args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=xx.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
                 }
             }
