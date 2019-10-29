@@ -1,10 +1,7 @@
 def AGENT_LABEL = null
 
 pipeline {
-      agent { label 'docker' }
-      environment {
-        awesomeVersion = "xxx"
-      }
+    agent none
     stages {
    
         
@@ -12,7 +9,7 @@ pipeline {
             agent {
                 docker {
                     image 'python:3.6-alpine' 
-                    args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST="${awesomeVersion}".proxy.chainapp.live -e VIRTUAL_PORT=5000  '
+                    args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=xx.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
                 }
             }
             steps {
