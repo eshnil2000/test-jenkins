@@ -1,15 +1,11 @@
 pipeline {
-    agent {
-    
-        node {
-            environment {
+    agent any
+    stages {
+        environment {
                 DISABLE_AUTH = 'true'
                 DB_ENGINE    = 'sqlite'
             }
-        }
-    }
-    stages {
-
+        
         stage('envars') {
             steps {
                 echo "Database engine is ${DB_ENGINE}"
