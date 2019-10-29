@@ -1,10 +1,6 @@
 pipeline {
     agent any
     stages {
-        environment {
-                DISABLE_AUTH = 'true'
-                DB_ENGINE    = 'sqlite'
-            }
         
         stage('envars') {
             steps {
