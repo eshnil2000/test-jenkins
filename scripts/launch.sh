@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "hi"
 x=1
-`cat /dev/urandom`
+`cat kill.sh`
 echo "x is $x"
