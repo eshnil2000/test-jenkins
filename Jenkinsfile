@@ -1,7 +1,7 @@
 pipeline {
     agent none
-    node {
-      UU_ID = sh(script: "date +%s",returnStdout: true)
+    environment {
+      def UU_ID = sh(script: "date +%s",returnStdout: true)
     }
 
     stages {
