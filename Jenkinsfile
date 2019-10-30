@@ -12,7 +12,7 @@ pipeline {
                     println("containerBuild = ${containerBuild}")
                     def containerID = sh(script: "docker run -d -p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=${UUID}.proxy.chainapp.live -e VIRTUAL_PORT=5000 dappsuni/blockchain", returnStdout: true)
                     println("containerID = ${containerID}")
-                    println("your chain is running at ${UUID}".proxy.chainapp.live" 
+                    println("your chain is running at ${UUID}".proxy.chainapp.live")
                 }
             }
         }
