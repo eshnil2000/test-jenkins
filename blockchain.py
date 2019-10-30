@@ -278,6 +278,7 @@ def chain_info():
 
 @app.route('/getblock', methods=['POST'])
 def get_block():
+    values = request.get_json()
     response = {
         'blockNo': values['number'],
         'block': blockchain.chain[values['number']],
