@@ -268,6 +268,13 @@ def full_chain():
     }
     return jsonify(response), 200
 
+@app.route('/info', methods=['GET'])
+def full_chain():
+    response = {
+        'owner': 'DappsUni',
+        'User': 'Nilesh',
+    }
+    return jsonify(response), 200
 
 @app.route('/nodes/register', methods=['POST'])
 def register_nodes():
