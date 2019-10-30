@@ -1,7 +1,7 @@
 def UU_ID
 
 node {
-  UU_ID = sh(script: "date +%s",returnStdout: true)
+  UU_ID = sh(script: "date +%s| sed -e 's/[[:space:]]*$//'",returnStdout: true)
 }
 
 pipeline {
