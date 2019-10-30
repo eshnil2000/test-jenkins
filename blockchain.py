@@ -268,22 +268,6 @@ def full_chain():
     }
     return jsonify(response), 200
 
-@app.route('/info', methods=['GET'])
-def chain_info():
-    response = {
-        'owner': 'DappsUni',
-        'User': 'Nilesh',
-    }
-    return jsonify(response), 200
-
-@app.route('/getblock', methods=['POST'])
-def get_block():
-    values = request.get_json()
-    response = {
-        'blockNo': values['number'],
-        'block': blockchain.chain[values['number']],
-    }
-    return jsonify(response), 200
 
 @app.route('/nodes/register', methods=['POST'])
 def register_nodes():
