@@ -269,7 +269,7 @@ def full_chain():
     return jsonify(response), 200
 
 @app.route('/info', methods=['GET'])
-def full_chain():
+def chain_info():
     response = {
         'owner': 'DappsUni',
         'User': 'Nilesh',
