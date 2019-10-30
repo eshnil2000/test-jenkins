@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "hi"
 x=1
-`cat kill.sh`
+`cat ./scripts/kill.sh`
 echo "x is $x"
