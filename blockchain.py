@@ -280,7 +280,7 @@ def chain_info():
 def get_block():
     response = {
         'blockNo': value['number'],
-        'block': blockchain.chain.index[value['number']],
+        'block': blockchain.chain[values['number']],
     }
     return jsonify(response), 200
 
