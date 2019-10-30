@@ -1,31 +1,14 @@
-def LINK_DOCKER_IMAGE = "linkedimage"
 pipeline {
     agent none
-    environment {
-    //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-    IMAGE = "imageXXX"
-  }
 
     stages {
    
-        
-        stage('Deploy') { 
-            agent {
-                docker {
-                    
-                    image 'python:3.6-alpine' 
-                    args '-p 5000 --network nginx-proxy --expose 5000 -e VIRTUAL_HOST=${LINK_DOCKER_IMAGE}.proxy.chainapp.live -e VIRTUAL_PORT=5000  '
-                }
-            }
+        stage('Build') {
             steps {
-                sh 'echo "${IMAGE}"'
-                sh 'pip install -r requirements.txt'
-                sh 'chmod +x ./scripts/deliver.sh'
-                sh './scripts/deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh 'chmod +x ./scripts/kill.sh'
-                sh './scripts/kill.sh'
+                sh 'export NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)' 
+                sh 'echo $NEW_UUID'
             }
-        }        
+        }
+             
     }
 }
